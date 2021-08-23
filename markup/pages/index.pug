@@ -1,5 +1,11 @@
 extends templates/_template
 
+include ../components/basket-block/basket-block
+include ../components/basket-list/basket-list
+include ../components/basket-item/basket-item
+include ../components/field-select/field-select
+include ../components/field-num/field-num
+include ../components/basket-checkout/basket-checkout
 
 block head
     +head(head.defaults)
@@ -8,6 +14,12 @@ block header
     +header
 
 block content
-    +example
+    +basket-block
+        .basket-block__items
+            +basket-list(basketList)
+
+        .basket-block__checkout
+            +basket-checkout
+            p.basket-block__checkout-text Доступные способы и время доставки можно выбрать при оформлении заказа.
 
 

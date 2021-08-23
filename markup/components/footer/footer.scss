@@ -1,13 +1,9 @@
 .footer {
     $block-name: &; // #{$block-name}__element
 
-    height: 830px;
+    height: 100px;
     background-color: #f7f7f7;
     border-top: 1px solid #e9eaec;
-
-    @include min($screen-md) {
-        height: 495px;
-    }
 
     &__container {
         @include container();

@@ -1,0 +1,99 @@
+// В этом файле должны быть стили для БЭМ-блока field-num, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.field-num {
+    $block-name: &; // #{$block-name}__element
+
+    display: block;
+
+    &__name {
+        @include field-name;
+    }
+
+    &__input-wrap {
+        display: block;
+    }
+
+    &__input-and-btns {
+        position: relative;
+        display: block;
+        width: 115px;
+    }
+
+    &__input {
+        @include field-text;
+
+        padding: $field-padding-vertical 35px;
+        text-align: center;
+
+        #{$block-name}:not(#{$block-name}--disabled) button:focus ~ & {
+            @include field-focus;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: 1px;
+        bottom: 1px;
+        padding: 0;
+        width: 35px;
+        //font: 0/0 a; // stylelint-disable-line
+        color: transparent;
+        border: none;
+
+        &:hover,
+        &:focus {
+            background-color: $gray-lightest;
+            cursor: pointer;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &--plus {
+            right: 1px;
+            background: svg-load('plus.svg') center no-repeat;
+            background-color: #f7f7f7;
+            background-size: 9px 14px;
+            border-left: 1px solid $border-color2;
+            border-radius: 0 4px 4px 0;
+        }
+
+        &--minus {
+            left: 1px;
+            background: svg-load('minus.svg') center no-repeat;
+            background-color: #f7f7f7;
+            background-size: 7px 14px;
+            border-right: 1px solid $border-color2;
+            border-radius: 4px 0 0 4px;
+        }
+
+        #{$block-name}--disabled & {
+            cursor: not-allowed;
+
+            &:hover,
+            &:focus {
+                background-color: transparent;
+            }
+        }
+    }
+
+    &__help-text {
+        @include field-help-text;
+    }
+
+    &--error {
+        #{$block-name}__name,
+        #{$block-name}__input,
+        #{$block-name}__help-text {
+            color: $color-danger;
+        }
+
+        #{$block-name}__input {
+            background-color: lighten($color-danger, 35%);
+            border-color: $color-danger;
+        }
+    }
+}

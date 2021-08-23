@@ -24,8 +24,12 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-weight: 400;
-    background-color: $white;
+    background-color: $bg-gray-mobile;
     min-height: 100%;
+
+    @include min($screen-md) {
+        background-color: $bg-gray;
+    }
 }
 
 * html .page__main {
@@ -93,7 +97,6 @@ textarea,
 select {
     font: inherit;
 }
-
 
 @media (prefers-reduced-motion: reduce) {
     * {

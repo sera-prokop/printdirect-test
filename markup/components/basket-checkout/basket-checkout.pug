@@ -1,0 +1,42 @@
+mixin basket-checkout(data, mods)
+    //- Принимает:
+    //- data {object} - данные из подключаемого data-файла
+    //- mods {string} - список модификаторов
+    //- Вызов:
+        .basket-checkout('basket-checkout', 'some-mod')
+
+    -
+        // список модификаторов
+        var allMods = '';
+        if(typeof(mods) !== 'undefined' && mods) {
+        var modsList = mods.split(',');
+            for (var i = 0; i < modsList.length; i++) {
+                allMods = allMods + 'basket-checkout--' + modsList[i].trim();
+            }
+        }
+
+    .basket-checkout(class=allMods)&attributes(attributes)
+
+        .basket-checkout__top
+
+            .basket-checkout__item
+                .basket-checkout__label Товары
+                    span (3)
+                .basket-checkout__num 12 800 ₽
+
+            .basket-checkout__item
+                .basket-checkout__label Скидка
+                .basket-checkout__num.basket-checkout__num--discount - 300 ₽
+
+            .basket-checkout__discount-link
+                a(href="#").basket-checkout__link У меня есть код для скидки
+                button(aria-label="Tooltip").basket-checkout__tooltip-icon.btn
+                    != pugHelpers.Icon.call(locals, {iconName: "question", className: "", iconWidth: "16", iconHeight: "16"})
+
+
+        .basket-checkout__bottom
+            .basket-checkout__total
+                .basket-checkout__total-label Итого
+                .basket-checkout__total-label 8 370 ₽
+
+            a(href="#").basket-checkout__btn.btn.btn--blue Оформить заказ

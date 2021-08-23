@@ -1,0 +1,98 @@
+mixin basket-item(data, mods)
+    //- Принимает:
+    //- data {object} - данные из подключаемого data-файла
+    //- mods {string} - список модификаторов
+    //- Вызов:
+        .basket-item('basket-item', 'some-mod')
+
+    -
+        // список модификаторов
+        var allMods = '';
+        if(typeof(mods) !== 'undefined' && mods) {
+        var modsList = mods.split(',');
+            for (var i = 0; i < modsList.length; i++) {
+                allMods = allMods + 'basket-item--' + modsList[i].trim();
+            }
+        }
+
+    .basket-item(class=allMods)&attributes(attributes)
+        .basket-item__img
+            img(src=`%=static=%img/assets/basket-list/${data.img}` alt="alt")
+
+        .basket-item__content
+
+            .basket-item__top
+                h3.basket-item__title=data.title
+
+            .basket-item__bottom
+
+                .basket-item__select
+                    +field-select(
+                        'Размер:',
+                        {
+                            name: `${data.selectName}`,
+                            id: `${data.selectId}`
+                        },
+                        [
+                            {
+                                title: 'S',
+                                attrs: {
+                                    value: '',
+                                }
+                            },
+                            {
+                                title: 'M',
+                                attrs: {
+                                    value: '',
+                                }
+                            },
+                            {
+                                title: 'L',
+                                attrs: {
+                                    value: '',
+                                }
+                            },
+                            {
+                                title: 'XL',
+                                attrs: {
+                                    value: '',
+                                }
+                            },
+                        ]
+                    )
+
+                .basket-item__quantity
+                    +field-num({
+                        title: 'Кол-во:',
+                        helpText: '1675 ₽ /шт.',
+                        mods: '',
+                        val: '1',
+                        attrs: {
+                            name: 'quantity',
+                            min: '1',
+                            step: '1',
+                        }
+                    })
+
+
+                button(aria-label="Like" class=data.likeActive ? 'basket-item__like--active' : '').btn.basket-item__like.basket-item__like--desktop
+                    != pugHelpers.Icon.call(locals, {iconName: "heart-2", className: "basket-item__like-svg", iconWidth: "27", iconHeight: "25"})
+                    span В избранное
+
+                .basket-item__cost-block
+                    .basket-item__cost 10 350
+                        span ₽
+
+                    if data.discount
+                        .basket-item__discount
+                            span.basket-item__old-cost 1 555₽
+                            span.basket-item__percent -20%
+
+                .basket-item__btns
+                    button.btn.basket-item__like.basket-item__like--mobile
+                        span В избранное
+
+                    button.btn.basket-item__close
+                        != pugHelpers.Icon.call(locals, {iconName: "close", className: "close", iconWidth: "17", iconHeight: "17"})
+                        span Удалить
+

@@ -1,0 +1,41 @@
+.basket-list {
+    $block-name: &; // #{$block-name}__element
+
+    &__list {
+        margin-bottom: 16px;
+
+        @include min($screen-md) {
+            border: 1px solid $border-color;
+        }
+    }
+
+    &__item {
+        position: relative;
+
+        @include min($screen-md) {
+            border-bottom: 1px solid $border-color;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            width: calc(100% - 32px);
+            height: 1px;
+            background-color: $border-color;
+
+            @include min($screen-md) {
+                display: none;
+            }
+        }
+
+        &:last-child {
+            border-bottom: none;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}

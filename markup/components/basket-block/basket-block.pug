@@ -1,0 +1,23 @@
+mixin basket-block(data, mods)
+    //- Принимает:
+    //- data {object} - данные из подключаемого data-файла
+    //- mods {string} - список модификаторов
+    //- Вызов:
+        .basket-block('basket-block', 'some-mod')
+
+    -
+        // список модификаторов
+        var allMods = '';
+        if(typeof(mods) !== 'undefined' && mods) {
+        var modsList = mods.split(',');
+            for (var i = 0; i < modsList.length; i++) {
+                allMods = allMods + 'basket-block--' + modsList[i].trim();
+            }
+        }
+
+    .basket-block(class=allMods)&attributes(attributes)
+        h2.basket-block__title
+            .basket-block__title-text Моя корзина
+            .basket-block__title-article ID корзины: 357253
+        .basket-block__inner
+            block

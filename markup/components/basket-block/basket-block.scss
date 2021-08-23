@@ -1,0 +1,70 @@
+.basket-block {
+    $block-name: &; // #{$block-name}__element
+
+    @include container();
+
+    margin-top: 25px;
+    margin-bottom: 65px;
+    padding: 0;
+
+    @include min($screen-md) {
+        margin-top: 35px;
+        margin-bottom: 85px;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    &__title {
+        margin-bottom: 13px;
+        padding-right: 16px;
+        padding-left: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 600;
+        color: $main-color;
+
+        @include min($screen-md) {
+            margin-bottom: 17px;
+            padding: 0;
+            font-size: 25px;
+        }
+    }
+
+    &__title-article {
+        font-size: 13px;
+        font-weight: 400;
+        color: $light-links;
+    }
+
+    &__inner {
+        display: grid;
+
+        @include min($screen-md) {
+            grid-template-columns: 1fr 325px;
+            column-gap: 22px;
+        }
+    }
+
+    &__checkout {
+        padding: 21px 17px;
+        background-color: #ffffff;
+
+        @include min($screen-md) {
+            padding: 0;
+            background-color: transparent;
+        }
+    }
+
+    &__checkout-text {
+        font-size: 13px;
+        color: $gray;
+
+        @include min($screen-md) {
+            padding-right: 17px;
+            padding-left: 17px;
+            font-size: 14px;
+        }
+    }
+}

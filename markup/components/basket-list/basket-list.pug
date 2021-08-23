@@ -1,0 +1,26 @@
+mixin basket-list(data, mods)
+    //- Принимает:
+    //- data {object} - данные из подключаемого data-файла
+    //- mods {string} - список модификаторов
+    //- Вызов:
+        .basket-list('basket-list', 'some-mod')
+
+    -
+        // список модификаторов
+        var allMods = '';
+        if(typeof(mods) !== 'undefined' && mods) {
+        var modsList = mods.split(',');
+            for (var i = 0; i < modsList.length; i++) {
+                allMods = allMods + 'basket-list--' + modsList[i].trim();
+            }
+        }
+
+    .basket-list(class=allMods)&attributes(attributes)
+        ul.basket-list__list
+
+            each item, index in data.list
+
+                li.basket-list__item
+                    +basket-item(item)
+
+

@@ -2,6 +2,7 @@
     $block-name: &; // #{$block-name}__element
 
     height: 118px;
+    background-color: $white;
     border-bottom: 1px solid #e9eaec;
 
     @include min($screen-md) {

@@ -41,4 +41,5 @@ ready(
 
 // Imports components
 
-import 'components/example/example';
+import 'components/field-select/field-select';
+import 'components/field-num/field-num';
