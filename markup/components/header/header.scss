@@ -1,10 +1,18 @@
 .header {
-    border-bottom: 1px solid #E9EAEC;
-}
+    $block-name: &; // #{$block-name}__element
 
-.header__container {
-    @include container();
+    height: 118px;
+    border-bottom: 1px solid #e9eaec;
 
-    padding-top: 50px;
-    padding-bottom: 50px;
+    @include min($screen-md) {
+        height: 185px;
+    }
+
+    &__container {
+        @include container();
+
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
 }

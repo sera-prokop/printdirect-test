@@ -13,7 +13,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-prettier": "^2.3.0",
-    "husky": "^4.2.2",
+    "husky": "^4.3.8",
     "lint-staged": "^10.0.7",
     "postcss-inline-svg": "^4.1.0",
     "postcss-object-fit-images": "^1.1.2",
