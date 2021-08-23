@@ -1,6 +1,6 @@
 var data = {head: {
         defaults: {
-            title: 'default title',
+            title: 'Корзина',
             useSocialMetaTags: true
         }
     }
