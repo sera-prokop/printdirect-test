@@ -1,0 +1,26 @@
+{
+    "folders": [
+        {
+            "name": "data",
+            "files": [
+                {
+                    "name": "data.js",
+                    "content": "var data = {__componentName__: {}}"
+                }
+            ]
+        }
+    ],
+
+    "files": [
+        {
+            "name": "__componentName__.__templateExtension__",
+            "content": "mixin __componentName__(data, mods)\n    //- Принимает:\n    //- data {object} - данные из подключаемого data-файла\n    //- mods {string} - список модификаторов\n    //- Вызов:\n        .__componentName__('__componentName__', 'some-mod')\n\n    -\n        // список модификаторов\n        var allMods = '';\n        if(typeof(mods) !== 'undefined' && mods) {\n        var modsList = mods.split(',');\n            for (var i = 0; i < modsList.length; i++) {\n                allMods = allMods + '__componentName__--' + modsList[i].trim();\n            }\n        }\n\n    .__componentName__(class=allMods)&attributes(attributes)\n        .__componentName____inner\n            block\n"
+        }, {
+            "name": "__componentName__.__cssExtension__",
+            "content": ".__componentName__ {\n    $block-name: &; // #{$block-name}__element\n}"
+        }, {
+            "name": "__componentName__.js",
+            "content": "import ready from '../../static/js/documentReady.js';\n\nready(function () {\n\n});"
+        }
+    ]
+}

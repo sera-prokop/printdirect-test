@@ -1,0 +1,25 @@
+// GUI stylies of the project
+// For example, styles of the links, buttons and so on.
+
+.btn{
+    position: relative;
+    border: none;
+    margin: 0;
+    overflow: visible;
+    text-align: inherit;
+    background: transparent;
+    //color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $transition-time;
+}

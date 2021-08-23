@@ -1,0 +1,113 @@
+// Common styles of the project
+
+html {
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.page {
+    //font-family: $pf;
+    font-size: 16px;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-weight: 400;
+    background-color: $body-bg;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.page__wrapper {
+    flex: 1 0 auto;
+}
+
+.page__footer {
+    flex: 0 0 auto;
+}
+
+* html .page__wrapper {
+    height: 100%;
+}
+
+.visually-hidden {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    vertical-align: middle;
+}
+
+::placeholder {
+    //color: rgba($text-color, 0.5);
+}
+
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+article > * + * {
+    margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

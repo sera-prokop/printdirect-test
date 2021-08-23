@@ -1,0 +1,11 @@
+.header {
+    margin-bottom: 10px;
+    background-color: #cccccc;
+}
+
+.header__container {
+    @include container();
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
