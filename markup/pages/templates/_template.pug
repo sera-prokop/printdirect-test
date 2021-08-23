@@ -14,14 +14,16 @@ html(class="no-js", lang="ru")
     body.page
         |%=symbols=%
 
-        main.page__wrapper
+        .page__header
+            block header
 
+
+        main.page__main
             block content
 
         .page__footer
             +footer()
 
-        //+modals
 
 
 

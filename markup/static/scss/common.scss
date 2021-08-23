@@ -17,26 +17,18 @@ body {
 }
 
 .page {
-    //font-family: $pf;
+    font-family: $open;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     font-size: 16px;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-weight: 400;
-    background-color: $body-bg;
-    display: flex;
-    flex-direction: column;
+    background-color: $white;
     min-height: 100%;
 }
 
-.page__wrapper {
-    flex: 1 0 auto;
-}
-
-.page__footer {
-    flex: 0 0 auto;
-}
-
-* html .page__wrapper {
+* html .page__main {
     height: 100%;
 }
 
@@ -60,8 +52,8 @@ img {
     //color: rgba($text-color, 0.5);
 }
 
-ul[class],
-ol[class] {
+ul,
+ol {
     padding: 0;
 }
 
@@ -71,8 +63,8 @@ h2,
 h3,
 h4,
 p,
-ul[class],
-ol[class],
+ul,
+ol,
 li,
 figure,
 figcaption,
@@ -82,8 +74,8 @@ dd {
     margin: 0;
 }
 
-ul[class],
-ol[class] {
+ul,
+ol {
     list-style: none;
 }
 
